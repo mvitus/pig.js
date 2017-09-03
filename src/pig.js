@@ -464,7 +464,10 @@
         
         // Compute this row's height.
         var totalDesiredWidthOfImages = wrapperWidth - this.settings.spaceBetweenImages * (row.length - 1);
-        var rowHeight = totalDesiredWidthOfImages / rowAspectRatio;
+        // Constrain the row height to be smaller than the image size to prevent
+        // displaying pixelated images.
+        var maxHeight = this.settings.getImageSize(this.lastWindowWidth)
+        var rowHeight = Math.min(maxHeight, totalDesiredWidthOfImages / rowAspectRatio);
 
         // For each image in the row, compute the width, height, translateX,
         // and translateY values, and set them (and the transition value we

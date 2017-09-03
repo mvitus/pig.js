@@ -459,7 +459,9 @@
       // images.
       if (rowAspectRatio >= this.minAspectRatio || index + 1 === this.images.length) {
 
-        // Make sure that the last row also has a reasonable height
+        // Make sure that the last row also has a reasonable height.  Store 
+        // the actual image aspect ratio.
+        var imageAspectRatio = rowAspectRatio;
         rowAspectRatio = Math.max(rowAspectRatio, this.minAspectRatio);
         
         // Compute this row's height.

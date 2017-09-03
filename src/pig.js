@@ -466,7 +466,7 @@
         var totalDesiredWidthOfImages = wrapperWidth - this.settings.spaceBetweenImages * (row.length - 1);
         // Constrain the row height to be smaller than the image size to prevent
         // displaying pixelated images.
-        var maxHeight = this.settings.getImageSize(this.lastWindowWidth)
+        var maxHeight = this.settings.getImageSize(this.lastWindowWidth);
         var rowHeight = Math.min(maxHeight, totalDesiredWidthOfImages / rowAspectRatio);
 
         // Center the images in the middle of the container.

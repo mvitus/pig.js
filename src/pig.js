@@ -282,12 +282,12 @@
        */
       getMinAspectRatio: function(lastWindowWidth) {
         if (lastWindowWidth <= 640)
-          return 2;
+          return 1;
         else if (lastWindowWidth <= 1280)
-          return 4;
+          return 2;
         else if (lastWindowWidth <= 1920)
-          return 5;
-        return 6;
+          return 2.5;
+        return 3;
       },
 
       /**

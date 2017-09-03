@@ -469,6 +469,14 @@
         var maxHeight = this.settings.getImageSize(this.lastWindowWidth)
         var rowHeight = Math.min(maxHeight, totalDesiredWidthOfImages / rowAspectRatio);
 
+        // Center the images in the middle of the container.
+        var widthActual = rowHeight * imageAspectRatio;
+        if (widthActual < totalDesiredWidthOfImages) {
+          // If the row of images do not span the entire column, start the first image
+          // offset from the left edge to center the images.
+          translateX = totalDesiredWidthOfImages / 2.0 - (widthActual + this.settings.spaceBetweenImages * (row.length - 1)) / 2.0;
+        }
+
         // For each image in the row, compute the width, height, translateX,
         // and translateY values, and set them (and the transition value we
         // found above) on each image.
